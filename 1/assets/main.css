@@ -1,0 +1,25 @@
+*{
+    cursor: url(chili.png), auto;
+}
+
+body {
+    background-color: black;
+    color: orangered;
+    font-family: monospace;
+    letter-spacing: 0.0001rem;
+    overflow-y: hidden;
+    width: 1000vw;
+    cursor: url(chili.png), auto;
+}
+
+#fish {
+    position: relative;
+    user-select: none;
+    animation: swim 2s alternate-reverse infinite ease-in-out;
+}
+
+
+@keyframes swim {
+    from {transform: translateY(100px);}
+    to {transform: translateY(-100px);}
+}
