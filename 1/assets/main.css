@@ -1,25 +1,221 @@
-*{
-    cursor: url(chili.png), auto;
+@font-face {
+    font-family: arial-narrow;
+    src: url(arial-narrow.ttf);
+}
+
+@font-face {
+    font-family: direct-light;
+    src: url(Director-Light.otf);
 }
 
 body {
-    background-color: black;
-    color: orangered;
-    font-family: monospace;
-    letter-spacing: 0.0001rem;
+    background-color: rgb(7, 17, 28);
     overflow-y: hidden;
+    height: 100vh;
+    width: 2000vw;
+    cursor: none;
+}
+
+#texture{
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 600vh;
     width: 1000vw;
-    cursor: url(chili.png), auto;
+    animation: swim 40s alternate-reverse infinite ease-in-out;
+    mix-blend-mode:color-dodge;
+    opacity: 50%;
+    filter: blur(4px);
+    user-select: none;
+}
+
+#text {
+    top: -8vh;
+    left: 80vw;
+    position: absolute;
+    font-size: 4rem;
+    display: flex;
+    overflow-x: scroll;
+    z-index: -1;
+    gap: 50vw;
+    /* color: orangered; */
+    color: green;
+    font-family: direct-light;
+    letter-spacing: 0.001rem;
+    filter: blur(1px);
+    line-height: 8rem;
+}
+
+#text > h1 {
+    width: 100vw;
+}
+
+#text > img {
+    position: fixed;
+    width: auto;
+}
+
+#text > h1:nth-child(4) {
+    width: 280vw;
+    margin-left: -40vw;
+    margin-top: 30vh;
+    word-spacing: 0.1rem;
+}
+
+#img1 {
+    height: 50vh;
+    display: none;
+    left: 1500px;
+    transition: ease;
+    top: 200px;
+    box-shadow: 2px 2px 20px #888888;
+}
+
+#img2 {
+    height: 50vh;
+    display: none;
+    left: 520vw;
+    transition: ease;
+    top: 200px;
+    box-shadow: 2px 2px 20px #888888;
+}
+
+#img3 {
+    height: 50vh;
+    display: none;
+    left: 650vw;
+    transition: linear;
+    top: 200px;
+    box-shadow: 2px 2px 20px #f508e5;
+    animation: combo 5s linear forwards; 
+}
+
+#heart {
+    display: none;
+    height: 32vh;
+    left: 650vw;
+    transition: ease;
+    top: -400px;
+    animation: drop 500ms linear forwards;
+    animation-delay: 4.5s;
+    
+}
+
+#img4 {
+    height: 50vh;
+    display: none;
+    left: 770vw;
+    transition: linear;
+    top: 400px;
+    box-shadow: 2px 2px 20px #f508e5;
+    transition: ease;
 }
 
 #fish {
-    position: relative;
+    position: fixed;
     user-select: none;
-    animation: swim 2s alternate-reverse infinite ease-in-out;
+}
+
+#fish-button {
+    position: absolute;
+    z-index: 1;
+    top: 70vh;
+    left: 1040vw;
+    font-size: 20vh;
+    animation: pulse 1s alternate-reverse infinite ease-in; 
+}
+
+#fish-button:hover {
+    text-shadow: 2px 2px 20px #caf508;
+    
+}
+
+#border{
+    left: 0;
+    height: 145vh;
+    width: 102vw;
+    margin-top: -35vh;
+    position: fixed;
+    mix-blend-mode: color-dodge;
+    z-index: -1;
+    display: none;
+    opacity: 80%;
+}
+
+#text > h1:nth-child(12) {
+    width: 90vw;
+}
+
+#text > h1:nth-child(13) {
+    width: 90vw;
+}
+
+
+.forward {
+    animation: swim 4s alternate-reverse infinite ease-in-out;
+}
+
+.flip {
+    animation: swimFlip 4s alternate-reverse infinite ease-in-out;
+}
+
+.pulse{
+    animation: pulse 2s linear infinite ;
+    animation-delay: 2s;
+}
+
+.spin{
+    animation: spin 2s linear;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+}
+
+.slide {
+    animation: slide 2s linear;
+    animation-delay: 1ms;
+    animation-iteration-count: 1;
 }
 
 
 @keyframes swim {
     from {transform: translateY(100px);}
     to {transform: translateY(-100px);}
+}
+
+@keyframes swimFlip {
+    from {transform: translateY(100px) scaleX(-1);}
+    to {transform: translateY(-100px) scaleX(-1);}
+}
+
+@keyframes pulse {
+    from {transform: scale(1);}
+    to {transform: scale(1.5);}
+}
+
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes slide {
+    from {transform: translate(0,-1000px);}
+    to {transform: translate(0,0);}
+}
+
+@keyframes slide {
+    from {transform: translate(0,-1000px);}
+    to {transform: translate(0,0);}
+}
+
+@keyframes combo {
+    0% {transform: translate(0,-1000px)}
+    25% {transform: translate(0,0) rotate(0deg);}
+    50% {transform:  rotate(180deg) scale(1)}
+    75% {transform:  rotate(360deg) scale(1.5)}
+    100% {transform:  scale(1)}
+}
+
+@keyframes drop {
+    from {transform: translate(0,0);}
+    to {transform: translate(0,700px) rotate(-30deg);}
 }
