@@ -63,6 +63,14 @@ setInterval(()=>{
 	 else {
 		img4.style.display = 'none';
 	 }
+
+	 let img5 = document.getElementById('img5');
+	 if (window.scrollX >= 16500) {
+		img5.style.display = 'block';
+ 	 } 
+	 else {
+		img5.style.display = 'none';
+	 }
 	
 
 }, 1);
